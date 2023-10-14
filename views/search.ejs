@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+<body>
+    <nav class=" max-w-screen h-20 flex justify-between items-center bg-blue-200 text-slate-800 px-5">
+        <h1 class=" text-3xl font-bold">Welcome</h1>
+        <div class=" w-full flex justify-end items-center">
+            <a href="/search-post" class=" mx-10">Search Post</a>
+            <a href="/create-post?user_email=<%= email %>" class=" mx-10">Create Post</a>
+            <a href="/search" class=" mx-10">Delete Post</a>
+            <a href="/search" class=" mx-10">Update Post</a>
+        </div>
+    </nav>
+    <div class=" w-full h-fit grid grid-cols-3 gap-4 py-4 px-4">
+        
+        <form action="/search-post" method="POST" class=" col-span-3 w-full flex justify-center items-center">
+            <label class=" text-3xl text-left mb-7">Search:</label>
+            <input class=" bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out " type="email" name="searchEmail" placeholder="Enter Email" required>
+            <button class=" px-5 py-2 bg-blue-400 rounded-lg m-5 mt-0 text-slate-300 border-2 border-blue-800 font-semibold hover:bg-blue-600 transition-colors ease-in-out duration-200 hover:text-slate-100">Search Posts</button>
+        </form>
+        <% if (email) { %>
+            <h1 class=" text-3xl font-bold col-span-3 w-full h-fit text-center "><%= email %>, posts</h1>
+            <% if (posts.length === 0) { %>
+                <h1 class=" text-4xl text-center w-full col-span-3">No posts by <%= email %></h1>
+            <% } %>
+        <% } %>
+        <% posts.forEach(element => { %>
+            <div class=" flex flex-col justify-start items-center w-full h-fit p-2 border-2 border-blue-200 rounded">
+                <p class=" w-full text-3xl font-medium text-center">Post Name: <%- element.postTitle %></p>
+                <p class=" w-full text-2xl font-medium">Post Type: <%- element.postType %></p>
+                <p class=" w-full text-2xl font-medium">Post Content: <%- element.postContent %></p>
+            </div>
+        <% }) %>
+
+    </div>
+</body>
+</html>

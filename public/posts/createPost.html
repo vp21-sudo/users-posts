@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Post</title>
+    <link rel="stylesheet" href="/output.css" />
+  </head>
+  <body>
+    <nav
+      class="w-full h-20 flex justify-between items-center bg-blue-200 text-slate-800 px-5"
+    >
+      <h1 class="text-3xl font-bold">Welcome</h1>
+      <div class="w-full flex justify-end items-center">
+        <a href="/search-post" class="mx-10">Search Post</a>
+        <a href="#" class="mx-10">Create Post</a>
+        <a href="/search" class="mx-10">Delete Post</a>
+        <a href="/search" class="mx-10">Update Post</a>
+      </div>
+    </nav>
+    <div class="w-full h-full mt-20 flex justify-center items-center">
+      <div
+        class="w-full mx-10 md:w-1/3 md:mx-0 h-fit border-2 border-blue-500 rounded-md bg-teal-100 flex flex-col justify-center items-center"
+      >
+        <h1
+          class="text-lg md:text-3xl text-blue-700 text-center font-medium m-3"
+        >
+          Create Your Account
+        </h1>
+
+        <form
+          action="/create-post"
+          method="POST"
+          class="w-full flex flex-col justify-center items-center"
+        >
+          <input type="hidden" name="userEmail" id="userEmail1" value="" />
+          <input
+            class="bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out"
+            type="text"
+            name="postName"
+            placeholder="Post Title"
+            required
+          />
+          <input
+            class="bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out"
+            type="text"
+            name="postType"
+            placeholder="Post Type"
+            required
+          />
+          <input
+            class="bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out"
+            type="text"
+            name="postContent"
+            placeholder="Post Content"
+            required
+          />
+          <button
+            class="px-5 py-2 bg-blue-400 rounded-lg m-5 mt-0 text-slate-300 border-2 border-blue-800 font-semibold hover:bg-blue-600 transition-colors ease-in-out duration-200 hover:text-slate-100"
+          >
+            Create Post
+          </button>
+        </form>
+      </div>
+    </div>
+    <script>
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const userEmailInp = document.getElementById("userEmail1");
+        userEmailInp.value = urlParams.get("user_email") || "";
+      </script>
+  </body>
+</html>

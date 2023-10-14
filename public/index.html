@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/output.css">
+</head>
+<body>
+    <div class=" w-screen h-screen flex justify-center items-center ">
+        <div class=" w-full mx-10 md:w-1/3 md:mx-0 h-fit border-2 border-blue-500 rounded-md bg-teal-100 flex flex-col justify-center items-center">
+            <h1 class=" text-lg md:text-3xl text-blue-700 text-center font-medium m-3">Create Your Account</h1>
+            
+            <form action="/create-account" method="POST" class=" w-full flex flex-col justify-center items-center">
+                <input class=" bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out " type="text" name="userName" placeholder="User Name" required/>
+                <input class=" bg-transparent border-2 border-blue-400 p-2 placeholder:text-gray-500 w-4/6 m-5 mt-0 rounded-lg focus:outline-none focus:border-blue-800 transition-colors duration-200 ease-in-out " type="email" name="userEmail" placeholder="User Email" required/>
+                <button class=" px-5 py-2 bg-blue-400 rounded-lg m-5 mt-0 text-slate-300 border-2 border-blue-800 font-semibold hover:bg-blue-600 transition-colors ease-in-out duration-200 hover:text-slate-100">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
