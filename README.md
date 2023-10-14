@@ -1,4 +1,4 @@
-# Portfolio Website
+# Node JS Backend
 
 Node JS backend with MongoDB to create user and user posts with CRUD operaions.
 ## Table of Contents
@@ -17,7 +17,7 @@ Node JS backend with MongoDB to create user and user posts with CRUD operaions.
 
 ## Getting Started
 
-To get started with the portfolio website, follow these steps:
+To get started with the Node JS Backend, follow these steps:
 
 1. Clone the repository:
 
