@@ -1,5 +1,5 @@
 import express from "express"
-import { handleCreatePost, handlePostDelete, handlePostSearch } from "../controllers/post-controller.mjs"
+import { handleCreatePost, handleGetAllPosts, handlePostDelete, handlePostSearch } from "../controllers/post-controller.mjs"
 import path from 'path'
 const postRouter = express.Router()
 
@@ -16,5 +16,7 @@ postRouter.get("/edit-post", (req, res) => {
     res.status(200).sendFile(path.join(process.cwd(), "./public/posts/createPost.html"))
 })
 
+
+postRouter.get("/get-all-posts", handleGetAllPosts)
 
 export default postRouter

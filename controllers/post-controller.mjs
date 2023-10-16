@@ -1,4 +1,4 @@
-import { createPost, deletePost, getUserPosts, updatePosts } from "../model/post-model.mjs"
+import { createPost, deletePost, getAllPosts, getUserPosts, updatePosts } from "../model/post-model.mjs"
 import path, { dirname } from 'path'
 import { getUserId } from "../model/user-model.mjs"
 const projectRoot = process.cwd()
@@ -57,4 +57,14 @@ const handleEditPost = async (req, res) => {
     const userPosts = await getUserPosts(userId)
     return res.render("home", {posts:userPosts, email:userEmail||""})
 }
-export {handlePostDelete, handleCreatePost, handlePostSearch, handleEditPost}
+
+const handleGetAllPosts = async (req, res )=> {
+    try{
+        const dbRes = await getAllPosts()
+        return res.render('allposts', {allPosts: dbRes})
+    } catch(err){
+        console.log(err)
+        res.status(500).sendFile(path.join(projectRoot, "./public/error/error.html"))
+    }
+}
+export {handlePostDelete, handleCreatePost, handlePostSearch, handleEditPost, handleGetAllPosts}

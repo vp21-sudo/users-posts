@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Mongoose } from "mongoose";
 
 const postSchema = new mongoose.Schema({
     postTitle: {
@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
     },
     postAuthor: {
         type: mongoose.Schema.Types.ObjectId, 
-        ref: 'User',
+        ref: 'user',
         required: true,
     },
     postDate: {
@@ -25,6 +25,7 @@ const postSchema = new mongoose.Schema({
 })
 
 const Post = mongoose.model('posts', postSchema)
+
 
 
 const createPost = async (postTitle, postContent, postType, postAuthor) => {
@@ -49,7 +50,7 @@ const createPost = async (postTitle, postContent, postType, postAuthor) => {
 
 const getAllPosts = async () => {
     try{
-        const res = await Post.find()
+        const res = await Post.find().populate("postAuthor").exec()
         return res
     } catch(error){
         console.log(error)
@@ -62,6 +63,7 @@ const getUserPosts = async (userId) => {
         return res
     } catch(error){
         console.log(error)
+        throw error
     }
 }
 

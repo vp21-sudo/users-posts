@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Posts</title>
+    <link rel="stylesheet" href="/public/output.css">
+</head>
+<body>
+    <div class=" w-full h-fit grid grid-cols-3 gap-4 py-4 px-4">
+        <h1 class=" text-3xl font-bold col-span-3 w-full h-fit text-center ">Your Posts</h1>
+        <% allPosts.forEach(element => { %>
+            <div class=" flex flex-col justify-start items-center w-full h-fit p-2 border-2 border-blue-200 rounded">
+                <p class=" w-full text-3xl font-medium text-center">Post Name: <%- element.postTitle %></p>
+                <p class=" w-full text-2xl font-medium">Post Type: <%- element.postType %></p>
+
+                <% if (element.postAuthor) { %>
+                    <p class=" w-full text-2xl font-medium">Post Content: <%- element.postContent %></p>
+                    <p class=" w-full text-2xl font-medium">Post Author Name: <%- element.postAuthor.name %></p>
+                    <p class=" w-full text-2xl font-medium">Post Author Email: <%- element.postAuthor.email %></p>
+                <% } %>
+            </div>
+        <% }) %>
+</body>
+</html>
